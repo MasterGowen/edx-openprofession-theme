@@ -42,24 +42,23 @@ site_status_msg = get_site_status_msg(course_id)
 </div>
 % endif
 </%block>
-<header id="global-navigation" class="global-header ${"slim" if course else ""}" >
+<header id="global-navigation" class="global-header ${"slim" if course else ""}" style="background-color: rgb(0,0,0); border-bottom-color: rgb(0, 0, 0);">
     <div class="container-fluid" aria-label="${_('Global')}">
       <div class="row top-bar">
 
         <div class="col-xs-10 col-sm-3 col-md-3">
           <a class="logo" href="${settings.PLP_URL}">
             <%block name="navigation_logo">
-                <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
+                <img src="https://albania.opro.ciot-env.ru/static/img/logo.svg" alt="${platform_name()}"/>
             </%block>
           </a>
         </div>
-
         <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
           % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
                   <a href="${settings.PLP_URL}/course">
-                    <span aria-hidden="true" class="icon catalog-icon"></span>
-                    <span class="hidden-xs">Каталог курсов</span>
+                    <!--<span aria-hidden="true" class="icon catalog-icon"></span>-->
+                    <span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   </a>
               %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
                 ## Translators: This is short for "System administration".
@@ -68,7 +67,6 @@ site_status_msg = get_site_status_msg(course_id)
             </%block>
           %endif
         </div>
-
         <div class="hidden-xs col-sm-3 col-md-3 col">
           % if course and user.is_authenticated():
             <div class="course-header">
@@ -89,8 +87,7 @@ site_status_msg = get_site_status_msg(course_id)
           % if user.is_authenticated():
             <div class="" id="sb_profile" style="position: relative; cursor:pointer; margin-bottom: -80px;">
               <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                <span class="icon profile-icon"></span>
-                <span class="hidden-sm hidden-xs">Мой профиль</span>
+                <span class="hidden-sm hidden-xs">Личный кабинет</span>
                 <span class="sr">${_("More options dropdown")}</span>
               </span>
               <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
